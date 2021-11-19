@@ -2,7 +2,7 @@ const db = require('../db');
 const dotenv = require('dotenv');
 dotenv.config();
 
-const listAutos = (id={}) => {
+const listAutos = (id={}) =>{
     return db(process.env.T_NAME)
     .where(id)
     .select(
@@ -17,7 +17,7 @@ const createAuto = (obj) => {
     return db(process.env.T_NAME).insert(obj)
 };
 
-const updateAuto = (id, obj) => {
+const updateAuto = (id, obj) =>{
     return db(process.env.T_NAME).where('id', id).update(obj)
 };
 
@@ -30,4 +30,5 @@ module.exports = {
     createAuto,
     updateAuto,
     deleteAuto
+
 }

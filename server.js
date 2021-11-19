@@ -4,7 +4,7 @@ const PORT = 8080
 
 const app = express();
 
-const vehiculos = require('./routes/routes.vehiculos');
+const vehiculos = require('./routes/routes.vehiculos.js');
 
 app.use(morgan('dev'));
 app.use(express.json());

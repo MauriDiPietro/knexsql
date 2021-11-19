@@ -1,6 +1,6 @@
-const services = require('../services/services.vehiculos');
+const services = require('../services/services.vehiculos.js');
 
-const list = async (req, res) => {
+const list = async (req, res) =>{
     try {
         const listAll = await services.listAutos();
         res.json(listAll)
@@ -9,7 +9,7 @@ const list = async (req, res) => {
     }
 };
 
-const single = async (req, res)=>{
+const single = async(req,res)=>{
     try{
         const listSingle = await services.listAutos({id: req.params.id})
         res.json(listSingle)
@@ -21,29 +21,25 @@ const single = async (req, res)=>{
 const created = async(req, res)=>{
     try{
         // const {marca, nombre, modelo} = req.body
-        // const vehiculo = {
-        //     marca,
-        //     nombre,
-        //     modelo
-        // }
+        // const vehiculo = {marca, nombre, modelo}
         const vehiculo = ({marca, nombre, modelo} = req.body);
-        await services.createAuto(vehiculo)
+        await services.createAuto(vehiculo);
         res.status(200).send('Vehiculo creado con éxito!')
     }catch(error){
         res.status(400).json(error.message)
     }
-};
+}
 
 const updated = async(req, res)=>{
     try{
         const vehiculo = ({marca, nombre, modelo} = req.body);
-        const {id} = req.params;
+        const {id} = req.params
         await services.updateAuto(id, vehiculo)
-        res.send(`Datos del vehiculo id: ${id} actualizados`)
+        res.send(`Datos del vehiculo con id: ${id} actualizados`)
     }catch(error){
         res.status(400).json(error.message)
     }
-};
+}
 
 const deleted = async(req, res)=>{
     try{
@@ -53,7 +49,7 @@ const deleted = async(req, res)=>{
     }catch(error){
         res.status(400).json(error.message)
     }
-};
+}
 
 module.exports = {
     list,
