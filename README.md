@@ -1,5 +1,5 @@
-## CRUD realizado con Knex y SQL
+# CRUD realizado con Knex y SQL
 
-# npm i
-# npm start
+## npm i
+## npm start
 
