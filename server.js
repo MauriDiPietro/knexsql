@@ -12,7 +12,7 @@ app.use(express.urlencoded({extended:false}));
 app.use('/vehiculos', vehiculos);
 
 app.listen(PORT, ()=>{
-    console.log(`Server ok en puerto ${PORT}`)
+    console.log(`Server ok en puerto: ${PORT}`)
 });
 
 module.exports = app
